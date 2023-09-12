@@ -222,7 +222,7 @@
 
         <h1>HIIII I'm Learning <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
 
-        <h2>The small framework with powerful features</h2>
+        <h2>I'm Lala from D3TI 2022</h2>
         <h2>Hopefully Successs</h2>
         <h2>HI rather Laravel than this actually</h2>
 
@@ -234,7 +234,7 @@
 
 <section>
 
-    <h1>About this page</h1>
+    <h1>Lala is abut to learn this framework</h1>
 
     <p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
