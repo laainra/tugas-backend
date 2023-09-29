@@ -57,15 +57,22 @@
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($stores as $store): ?>
+            <?php foreach ($stores as $s): ?>
                 <tr>
-                    <td><?php echo $store['name']; ?></td>
-                    <td><?php echo $store['description']; ?></td>
+                    <td><?php echo $s->id; ?></td>
+                    <td><?php echo $s->name; ?></td>
+                    <td><?php echo $s->description; ?></td>
+                    <td>
+                    <a href="<?= base_url("/edit-store/") . $s->id?>">Edit</a>
+                    <a href="<?= base_url("/delete-store/") . $s->id?>">Delete</a>
+                </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

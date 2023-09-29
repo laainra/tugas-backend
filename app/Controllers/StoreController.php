@@ -1,43 +1,74 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Controllers\BaseController;
 use App\Models\StoreModel;
 
 class StoreController extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->store = new StoreModel();
+    }
+
     public function index()
     {
-        $storeModel = new StoreModel();
-        $data['stores'] = $storeModel->getAllStores();
+        
+        $stores =  $this->store->findAll();
+        $data = [
+            'stores' => $stores
+        ];
 
         return view('store', $data);
     }
 
+    public function insertPage(){
+        return view('insertstore');
+    }
+
     public function insertStore()
     {
-        // Handle form submission to create a new store
+
         if ($this->request->getMethod() === 'post') {
-            $storeModel = new StoreModel();
+
 
             $data = [
                 'name' => $this->request->getPost('name'),
                 'description' => $this->request->getPost('description'),
             ];
 
-            // Insert the new store into the database
-            $insertedStoreId = $storeModel->insertStore($data);
+            $this->store->insertStore($data);
 
-            if ($insertedStoreId) {
-                // Redirect to a success page or display a success message
-                return redirect()->to('/store')->with('success', 'Store added successfully.');
-            } else {
-                // Handle the case where the insertion failed
-                return redirect()->back()->withInput()->with('error', 'Failed to add the store.');
-            }
+            return redirect()->to('store');
+
         }
-
-        // Load the view for creating a new store
-        return view('insertstore');
     }
+
+    public function getStore($id){
+        $store = $this->store->find($id);
+        $data = [
+            'store' => $store
+        ];
+
+        return view('edit-store', $data);
+    }
+    public function updateStore($id)
+    {
+        $name = $this->request->getVar('name');
+        $description = $this->request->getVar('description');
+        $data = [
+            'name'=>$name,
+            'description'=>$description
+        ];
+        $this->store->update($id,$data);
+        return redirect()->to(base_url("store"));
+
+    }
+
+    public function deleteStore($id){
+        $this->store->delete($id);
+        return redirect()->to(base_url("store"));
+    }
+
 }

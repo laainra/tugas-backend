@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Store</title>
+    <title>Edit Store</title>
     <style>
         /* Style for the form container */
         .form-container {
@@ -52,17 +52,18 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Add Store</h1>
+        <h1>Edit Store</h1>
 
-        <form method="post" action="insertstore">
+        <form method="post" action="<?= base_url('edit-store/'.$store->id)?>">
             <?php echo csrf_field(); ?>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+            <input type="text" id="name" name="name" required value="<?= $store->name ?>"><br>
             <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea><br>
-            <input type="submit" value="Add Store">
+            <input id="description" name="description" required value="<?= $store->description ?>"></input><br>
+            <input type="submit" value="Edit Store">
         </form>
         <a href="/store">Back to Store List</a>
     </div>
 </body>
 </html>
+

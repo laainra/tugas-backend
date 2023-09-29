@@ -8,7 +8,8 @@ class StoreModel extends Model
 {
     protected $table = 'stores';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['name', 'description', 'location', 'opening_hours'];
+    protected $returnType = 'object';
+    protected $allowedFields = ['name', 'description'];
 
 
     public function insertStore($data)
