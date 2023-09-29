@@ -29,6 +29,7 @@
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Description</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -37,7 +38,11 @@
                 <td><?php echo $product->id; ?></td>
                 <td><?php echo $product->nama_product; ?></td>
                 <td><?php echo $product->description; ?></td>
-            </tr>
+                <td>
+                    <a href="<?= base_url("/edit-product/") . $product->id?>">Edit</a>
+                    <a href="<?= base_url("/delete-product/") . $product->id?>">Delete</a>
+            </td>
+                <td></td>            </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
