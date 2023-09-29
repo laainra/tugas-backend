@@ -36,12 +36,19 @@ class ProductController extends BaseController
 
     public function insertProductORM()
     {
-        $data = [
-            'nama_product' => 'Laptop',
-            'description' => 'merupakan laptop merk MAC'
-        ];
+    $data = [
+        'nama_product' => $this->request->getPost('nama_product'),
+        'description' => $this->request->getPost('description')
+    ];
 
-        $this->product->insertProductORM($data);
+    $this->product->insertProductORM($data);
+
+    return redirect()->to('readproduct');
+    }
+
+
+    public function insertPage(){
+        return view('insertproduct');
     }
 
     public function getProduct($id)

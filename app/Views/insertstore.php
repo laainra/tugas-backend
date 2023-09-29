@@ -53,12 +53,7 @@
 <body>
     <div class="form-container">
         <h1>Add Store</h1>
-        <?php if(session()->has('success')): ?>
-            <p class="success-message"><?php echo session('success'); ?></p>
-        <?php endif; ?>
-        <?php if(session()->has('error')): ?>
-            <p class="error-message"><?php echo session('error'); ?></p>
-        <?php endif; ?>
+
         <form method="post" action="insertstore/insert">
             <?php echo csrf_field(); ?>
             <label for="name">Name:</label>
