@@ -18,3 +18,12 @@ $routes->post('insertstore', 'StoreController::insertStore');
 $routes->get('edit-store/(:any)', 'StoreController::getStore/$1');
 $routes->post('edit-store/(:any)', 'StoreController::updateStore/$1');
 $routes->get('delete-store/(:any)', 'StoreController::deleteStore/$1');
+
+// Movie Watchlist
+
+$routes->get('/movie', 'MovieController::index');
+$routes->get('/movie/create', 'MovieController::create');
+$routes->post('/movie/store', 'MovieController::store');
+$routes->get('/movie/edit/(:any)', 'MovieController::edit/$1');
+$routes->post('/movie/update/(:any)', 'MovieController::update/$1');
+$routes->get('/movie/delete/(:any)', 'MovieController::delete/$1');
