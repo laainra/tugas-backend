@@ -27,3 +27,10 @@ $routes->post('/movie/store', 'MovieController::store');
 $routes->get('/movie/edit/(:any)', 'MovieController::edit/$1');
 $routes->post('/movie/update/(:any)', 'MovieController::update/$1');
 $routes->get('/movie/delete/(:any)', 'MovieController::delete/$1');
+
+//api
+
+$routes->group('api',function($routes){
+    $routes->get('products', 'ProductController::readProductsApi');
+    $routes->get('product/(:any)', 'ProductController::getProductApi/$1');
+});
