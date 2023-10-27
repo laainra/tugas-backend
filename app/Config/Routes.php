@@ -28,9 +28,20 @@ $routes->get('/movie/edit/(:any)', 'MovieController::edit/$1');
 $routes->post('/movie/update/(:any)', 'MovieController::update/$1');
 $routes->get('/movie/delete/(:any)', 'MovieController::delete/$1');
 
+// Music Playliat
+
+$routes->get('music', 'MusicController::index');
+$routes->get('music/create', 'MusicController::create');
+$routes->post('music/store', 'MusicController::store');
+$routes->get('music/update', 'MusicController::edit');
+$routes->get('music/edit/(:any)', 'MusicController::edit/$1');
+$routes->post('music/update/(:any)', 'MusicController::update/$1');
+$routes->get('music/delete/(:any)', 'MusicController::delete/$1');
+
 //api
 
 $routes->group('api',function($routes){
     $routes->get('products', 'ProductController::readProductsApi');
     $routes->get('product/(:any)', 'ProductController::getProductApi/$1');
+    $routes->get('movie', 'MovieController::index');
 });
