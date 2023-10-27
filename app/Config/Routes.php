@@ -27,8 +27,9 @@ $routes->post('/movie/store', 'MovieController::store');
 $routes->get('/movie/edit/(:any)', 'MovieController::edit/$1');
 $routes->post('/movie/update/(:any)', 'MovieController::update/$1');
 $routes->get('/movie/delete/(:any)', 'MovieController::delete/$1');
+$routes->get('/movie/restore/(:any)', 'MovieController::restore/$1');
 
-// Music Playliat
+// Music Playlist
 
 $routes->get('music', 'MusicController::index');
 $routes->get('music/create', 'MusicController::create');
@@ -37,6 +38,10 @@ $routes->get('music/update', 'MusicController::edit');
 $routes->get('music/edit/(:any)', 'MusicController::edit/$1');
 $routes->post('music/update/(:any)', 'MusicController::update/$1');
 $routes->get('music/delete/(:any)', 'MusicController::delete/$1');
+$routes->get('music/trash', 'MusicController::trashedMusic');
+$routes->get('/music/restore/(:any)', 'MusicController::restore/$1');
+$routes->get('/music/permanentdelete/(:any)', 'MusicController::permanentDelete/$1');
+
 
 //api
 

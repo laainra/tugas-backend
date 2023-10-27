@@ -64,13 +64,17 @@
                     
 
                 </tr>
-                <!-- Tambahkan baris-baris tambahan di sini jika diperlukan -->
+                
             </tbody>
             <?php endforeach ?>
         </table>
         <a href="/music/create">
 
             <button class="btn btn-primary">Add Music</button>
+        </a>
+        <a href="/music/trash">
+
+            <button class="btn btn-primary">View Trash</button>
         </a>
     </div>
 
