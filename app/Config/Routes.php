@@ -48,5 +48,7 @@ $routes->get('/music/permanentdelete/(:any)', 'MusicController::permanentDelete/
 $routes->group('api',function($routes){
     $routes->get('products', 'ProductController::readProductsApi');
     $routes->get('product/(:any)', 'ProductController::getProductApi/$1');
+    $routes->post('insert-product', 'ProductController::insertProductApi');
+    $routes->post('update-product/(:any)', 'ProductController::updateProductApi/$1');
     $routes->get('movie', 'MovieController::index');
 });
